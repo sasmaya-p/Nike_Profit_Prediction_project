@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nike Profit Prediction</title>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            width: 500px;
+            margin: auto;
+            margin-top: 40px;
+            background-color: #ffffff;
+            color: #333;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e3c72;
+        }
+
+        p {
+            font-size: 14px;
+            text-align: center;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2a5298;
+        }
+
+        .result {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>👟 Nike Profit Prediction</h2>
+
+    <p>
+        Enter realistic values for the first 6 fields.  
+        For category fields, enter <b>1 for selected</b> and <b>0 for others</b>.
+    </p>
+
+    <form action="/predict" method="post">
+
+        <input type="number" step="any" name="Units_Sold" placeholder="Units Sold (e.g. 100)" required>
+        <input type="number" step="any" name="MRP" placeholder="MRP (e.g. 5000)" required>
+        <input type="number" step="any" name="Discount_Applied" placeholder="Discount Applied (e.g. 500)" required>
+        <input type="number" step="any" name="Revenue" placeholder="Revenue (e.g. 450000)" required>
+        <input type="number" step="any" name="Recalculated_Revenue" placeholder="Recalculated Revenue" required>
+        <input type="number" step="any" name="Profit_Margin" placeholder="Profit Margin (e.g. 20)" required>
+
+        <hr>
+
+        <p><b>Gender Category (select one as 1)</b></p>
+        <input type="number" min="0" max="1" name="Gender_Category_Kids" placeholder="Kids (0 or 1)" required>
+        <input type="number" min="0" max="1" name="Gender_Category_Men" placeholder="Men (0 or 1)" required>
+        <input type="number" min="0" max="1" name="Gender_Category_Women" placeholder="Women (0 or 1)" required>
+
+        <hr>
+
+        <p><b>ProductS</b></p>
+        <input type="number" step="1" min="0" max="1" name="Product_Line_Basketball" placeholder="Product_Line_Basketball (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Line_Lifestyle" placeholder="Product_Line_Lifestyle (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Line_Running" placeholder="Product_Line_Running (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Line_Soccer" placeholder="Product_Line_Soccer (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Line_Training" placeholder="Product_Line_Training (0/1)" required>
+
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Air_Force_1" placeholder="Product_Name_Air_Force_1 (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Air_Jordan" placeholder="Product_Name_Air_Jordan (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Air_Zoom" placeholder="Product_Name_Air_Zoom (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Blazer_Mid" placeholder="Product_Name_Blazer_Mid (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Dunk_Low" placeholder="Product_Name_Dunk_Low (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Flex_Trainer" placeholder="Product_Name_Flex_Trainer (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Free_RN" placeholder="Product_Name_Free_RN (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Kyrie_Flytrap" placeholder="Product_Name_Kyrie_Flytrap (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_LeBron_20" placeholder="Product_Name_LeBron_20 (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Mercurial_Superfly" placeholder="Product_Name_Mercurial_Superfly (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Metcon_7" placeholder="Product_Name_Metcon_7 (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Pegasus_Turbo" placeholder="Product_Name_Pegasus_Turbo (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Phantom_GT" placeholder="Product_Name_Phantom_GT (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Premier_III" placeholder="Product_Name_Premier_III (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_React_Infinity" placeholder="Product_Name_React_Infinity (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_SuperRep_Go" placeholder="Product_Name_SuperRep_Go (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Tiempo_Legend" placeholder="Product_Name_Tiempo_Legend (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Waffle_One" placeholder="Product_Name_Waffle_One (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_Zoom_Freak" placeholder="Product_Name_Zoom_Freak (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Product_Name_ZoomX_Invincible" placeholder="Product_Name_ZoomX_Invincible (0/1)" required>
+        
+
+        <p><b>Sales Channel</b></p>
+        <input type="number" min="0" max="1" name="Sales_Channel_online" placeholder="Online (0 or 1)" required>
+        <input type="number" min="0" max="1" name="Sales_Channel_retail" placeholder="Retail (0 or 1)" required>
+
+        <hr>
+
+        <p><b>Region</b></p>
+        <input type="number" min="0" max="1" name="Region_Bangalore" placeholder="Bangalore (0 or 1)" required>
+        <input type="number" min="0" max="1" name="Region_Delhi" placeholder="Delhi (0 or 1)" required>
+        <input type="number" min="0" max="1" name="Region_Mumbai" placeholder="Mumbai (0 or 1)" required>
+        <input type="number" min="0" max="1" name="Region_Pune" placeholder="Pune (0 or 1)" required>
+        <input type="number" step="1" min="0" max="1" name="Region_Hyderabad" placeholder="Region_Hyderabad (0/1)" required>
+        <input type="number" step="1" min="0" max="1" name="Region_Kolkata" placeholder="Region_Kolkata (0/1)" required>
+        <button type="submit">Predict Profit</button>
+    </form>
+
+    <div class="result">
+        {{ prediction_text }}
+    </div>
+
+</div>
+
+</body>
+</html>
